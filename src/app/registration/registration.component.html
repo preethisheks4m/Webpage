@@ -1,0 +1,209 @@
+<nav class="navbar navbar-expand-lg navbar-light bg height">
+    <div class="dropdown">
+        <button class="btn dropdown-toggle text-white " type="button" data-bs-toggle="dropdown">English</button>
+        <ul class="dropdown-menu" >
+            <li>French</li>
+        </ul>
+    </div>
+</nav>
+   
+
+
+
+<div class="col-12 col-md-6 mb-2 px-5">
+    <br>
+    <h1 class="color">CIBC</h1>
+    <p>CIBC Global MoneyTransfer for Business</p>
+</div>
+<hr>
+
+<div class="col-12 col-md-6 mb-2 px-5">
+    <h2 class="font font1">Request CIBC FX Price Quote</h2>
+</div>
+<br>
+<div class="border">
+     <h4 class="px-5 font1">Contact Details</h4>
+  <form [formGroup]="regForm">
+    <div class="container-fluid px-5">
+        <div class="row">
+                 <div class="form-group col-sm-4">
+                     <label class="label" for="name">Business Name</label>
+                      <input class="form-control rounded-0" type="text" formControlName="name">
+                          <div *ngIf="name?.invalid && name?.touched" class="text-danger">
+                             <small *ngIf="name?.errors?.required">Name is required</small>
+                                 <small *ngIf="name?.errors?.minlength">Name should be atleast 4 characters long </small>
+                                       <small *ngIf="name?.errors?.maxlength">Name should be within 10 characters</small>
+
+                            </div>
+                    </div>
+          <div class="form-group col-sm-4">
+          <label class="label" for="firstname">Business Contact First Name</label>
+           <input class="form-control rounded-0" type="text" formControlName="firstName">
+          <div *ngIf="firstName?.invalid && firstName?.touched" class="text-danger">
+            <small *ngIf="firstName?.errors?.required">First Name is required</small>
+            <small *ngIf="firstName?.errors?.minlength">First Name should be atleast 4 characters long </small>
+            <small *ngIf="firstName?.errors?.maxlength">First Name should be within 10 characters</small>
+
+          </div>
+           </div>
+             <div class="form-group col-sm-4">
+           <label class="label" for="lastname">Business Contact Last Name</label>
+           <input class="form-control rounded-0" type="text" formControlName="lastName">
+           <div *ngIf="lastName?.invalid && lastName?.touched" class="text-danger">
+            
+            <small *ngIf="lastName?.errors?.required">Last Name is required</small>
+            <small *ngIf="lastName?.errors?.minlength">Last Name should be atleast 4 characters long </small>
+            <small *ngIf="lastName?.errors?.maxlength">Last Name should be within 10 characters</small>
+
+          </div>
+           </div>
+
+           </div>
+           
+
+
+
+
+           <div class="row mt-5">
+           <div class="form-group col-sm-4">
+            <label class="label" for="email">Business Email</label>
+            <input class="form-control rounded-0" type="email" formControlName="email">
+            <div *ngIf="email?.invalid && email?.touched" class="text-danger">
+                <small *ngIf="email?.errors?.required">Email is required</small>
+                <small *ngIf="email?.errors?.email">Enter valid email</small>
+
+
+
+
+            </div>
+
+           </div>
+
+           <div class="form-group col-sm-4">
+            <label class="label" for="phonenumber">Business Phone Number</label>
+            <input class="form-control rounded-0" type="text" formControlName="mobNumber">
+            <div *ngIf="mobNumber?.invalid && mobNumber?.touched" class="text-danger">
+                <small *ngIf="mobNumber?.errors?.required">Number is required</small>
+                <small *ngIf="mobNumber?.errors?.pattern">Enter valid email</small>
+
+
+             </div>
+           </div>
+
+          <div class="col-sm-4">
+            <label class="label" for="lastname">Are you Currently a CIBC Business Banking Client?</label>
+            <div class="input-group mb-3">
+                <select class="form-select custom-select rounded-0" formControlName="client" >
+                    <option selected>Please select your status</option>
+                    <option *ngFor="let detail of details">
+                        {{detail}}
+                    </option>
+                </select>
+                <div *ngIf="client?.invalid && client?.touched" class="text-danger">
+                    <small *ngIf="client?.errors?.required">choose yes or no</small>
+                </div>
+            </div>
+            </div>
+         </div>
+
+             <br>
+             <h4 class=" font1">Competitor Pricing Details</h4>
+              <div class="row">
+
+                <div class="col-sm-4">
+                 <label class="label" for="lastname">Transfer Country</label>
+                    <div class="input-group mb-3">
+                    <select class="form-select custom-select rounded-0" formControlName="country" >
+                    <option selected>Select country</option>
+                    <option *ngFor="let country of countries">
+                        {{country}}
+                    </option>
+                   </select>
+                   <div *ngIf="country?.invalid && country?.touched" class="text-danger">
+                    <small *ngIf="country?.errors?.required">select country</small>
+
+                </div>
+
+                 </div>
+                </div>
+
+                   <div class="form-group col-sm-4">
+                    <label class="label" for="date">Transaction Date</label>
+                    <input class="form-control rounded-0" type="date" formControlName="date">
+                    <div *ngIf="date?.invalid && date?.touched" class="text-danger">
+                        <small *ngIf="date?.errors?.required">Date is required</small>
+        
+        
+                     </div>
+                     </div>
+       
+                      <div class="form-group col-sm-4">
+                       <label class="label" for="date">FX Competitor Name</label>
+                        <input class="form-control rounded-0" type="text" formControlName="competitor">
+                        <div *ngIf="competitor?.invalid && competitor?.touched" class="text-danger">
+                            <small *ngIf="competitor?.errors?.required">Competitor name is required</small>
+            
+            
+                         </div>
+                      </div>
+
+                 </div>
+
+                        <div class="row">
+                          <h5 class="font1">Proof1</h5>
+                           <div class="input-group mb-3">
+                                 <div class="custom-file">
+                                      <input type="file" class="custom-file-input rounded-0" id="inputGroupFile01">
+                                  </div>
+                            </div>
+                        </div>
+
+                         <div class="row">
+                             <div class="form-group col-sm-8">
+
+                                <label class="label" for="info">Additional Information</label>
+                                   <input class="form-control rounded-0 height" type="text">
+                           </div>
+                         </div>
+
+                             <br>
+
+                           <div class="row">
+                             <div class="col-12">
+                                <div class="form-check">
+                                   <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required formControlName="check">
+                                   <div *ngIf="check?.invalid && check?.touched" class="text-danger">
+                                    <small *ngIf="check?.errors?.required">Must agree Terms and conditions</small>
+                    
+                    
+                                 </div>
+                                      <label class="form-check-label" for="invalidCheck"> Agree to terms and conditions </label>
+             
+                                 </div>
+                              </div>
+                            </div>
+          
+                                   <div class="row">
+                                       <div class="col-sm-4"></div>
+                                       <div class="col-sm-4"></div>
+                                       <div class="col-sm-2"></div>
+
+
+                                    <div class="col-sm-2">
+                                         <button class="btn  button-bg text-white" (click)="click()">Submit</button>
+                                    </div>
+                                     </div>
+
+    
+    </div>
+ </form>
+ </div>
+
+
+
+<nav class="navbar navbar-expand-lg bg-dark height1">
+<div class="row px-5">
+<h1 class="text-white col-sm-4">CIBC</h1>
+<p class="text-white col-sm-12 "> Canadian Imperial Bank of Commerce website-Copyright@CIBC</p>
+</div>
+</nav>
